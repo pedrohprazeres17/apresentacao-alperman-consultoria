@@ -39,8 +39,9 @@ Representantes da Alperman, professor e turma de Digital Transformation Consulti
 
 ## Movimento
 
-- Entrada manual e escalonada dos blocos: cada clique revela conteúdo antes de avançar.
+- Entrada automática e escalonada dos blocos ao abrir cada slide; cada clique troca diretamente de slide.
 - Transição de sinal cobre a troca de slides e impede sobreposição de cenas.
+- Nenhum slide avança sozinho: o apresentador continua controlando toda troca de tela.
 - Avanço exclusivamente manual por teclado, clique ou controles.
 - Respeito automático à preferência `prefers-reduced-motion`.
 
