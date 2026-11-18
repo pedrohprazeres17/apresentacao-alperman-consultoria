@@ -41,12 +41,16 @@
   async function cinematicSwap(nextIndex){
     busy=true;clearMotion();transition.replaceChildren();transition.style.visibility='visible';
     const colors=['#0c120f','#075d46','#d7fb57','#eeeae0'], color=colors[+slides[nextIndex].dataset.stage];
-    const panels=4, parts=[];
-    for(let i=0;i<panels;i++){const d=document.createElement('i');d.style.cssText=`position:absolute;left:${i*100/panels}%;top:0;width:${100/panels+.2}%;height:100%;background:${color};transform:translateY(101%);`;transition.append(d);parts.push(d)}
-    const old=slides[index];play(old,[{transform:'scale(1)',filter:'brightness(1)'},{transform:'scale(.94)',filter:'brightness(.65)'}],{duration:520,easing:ease.inOut});
-    await Promise.all(parts.map((p,i)=>p.animate([{transform:'translateY(101%)'},{transform:'translateY(0)'}],{duration:460,delay:i*45,easing:ease.inOut,fill:'forwards'}).finished));
+    const panel=document.createElement('i'),line=document.createElement('b');
+    panel.style.cssText=`position:absolute;inset:0;background:${color};clip-path:inset(0 100% 0 0);`;
+    line.style.cssText='position:absolute;top:0;bottom:0;left:0;width:8px;background:#d7fb57;transform:translateX(-12px);';
+    transition.append(panel,line);
+    const old=slides[index];play(old,[{opacity:1},{opacity:.72}],{duration:260,easing:ease.inOut});
+    const enter=panel.animate([{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0 0 0)'}],{duration:300,easing:ease.inOut,fill:'forwards'});
+    line.animate([{transform:'translateX(-12px)'},{transform:'translateX(105vw)'}],{duration:300,easing:ease.inOut,fill:'forwards'});
+    await enter.finished;
     index=nextIndex;sync();
-    await Promise.all(parts.map((p,i)=>p.animate([{transform:'translateY(0)'},{transform:'translateY(-101%)'}],{duration:580,delay:(parts.length-1-i)*45,easing:ease.out,fill:'forwards'}).finished));
+    await panel.animate([{clipPath:'inset(0 0 0 0)'},{clipPath:'inset(0 0 0 100%)'}],{duration:360,easing:ease.out,fill:'forwards'}).finished;
     transition.replaceChildren();transition.style.visibility='hidden';busy=false;
   }
   function next(){if(!busy&&index<slides.length-1)cinematicSwap(index+1)}function prev(){if(!busy&&index>0)cinematicSwap(index-1)}
