@@ -1,6 +1,6 @@
 # Apresentação Alperman — Fase 2
 
-Deck HTML animado da proposta de Sistema de Qualificação e Funil Alperman.
+Deck HTML animado da proposta de Sistema de Qualificação e Funil Alperman. A navegação é manual e cada slide executa automaticamente uma coreografia própria ao entrar, sem builds por clique e sem avanço automático.
 
 ## Controles
 

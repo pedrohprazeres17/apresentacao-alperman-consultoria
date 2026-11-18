@@ -39,8 +39,9 @@ Representantes da Alperman, professor e turma de Digital Transformation Consulti
 
 ## Movimento
 
-- Entrada automática e escalonada dos blocos ao abrir cada slide; cada clique troca diretamente de slide.
-- Transição de sinal cobre a troca de slides e impede sobreposição de cenas.
+- Coreografia própria para cada slide, vinculada à ideia apresentada: sistema que se monta, ciclo que converge, funil que avança, portas que decidem, CRM que entra em perspectiva, piloto que percorre fases e métricas que crescem da base.
+- Entrada automática e escalonada ao abrir cada slide; cada clique troca diretamente de slide.
+- Transições cinematográficas por painéis alternados cobrem a troca e mudam de cor conforme o ato, sem inserir telas intermediárias.
 - Nenhum slide avança sozinho: o apresentador continua controlando toda troca de tela.
 - Avanço exclusivamente manual por teclado, clique ou controles.
 - Respeito automático à preferência `prefers-reduced-motion`.
